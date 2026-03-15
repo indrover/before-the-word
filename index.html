@@ -140,8 +140,10 @@
 
     .hero-content {
       position: relative; z-index: 2;
-      padding: 0 80px 72px;
-      max-width: 860px;
+      padding: 0 48px 72px;
+      width: 100%;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
     }
 
     .hero-eyebrow {
@@ -175,12 +177,12 @@
       font-family: var(--serif); font-size: clamp(18px, 2vw, 22px); font-weight: 300;
       font-style: italic; color: var(--cream);
       opacity: 0.88; margin-bottom: 40px;
-      border-left: 2px solid var(--crimson);
-      padding-left: 20px; line-height: 1.5;
-      max-width: 520px;
+      border-left: none;
+      padding-left: 0; line-height: 1.5;
+      max-width: 560px;
     }
 
-    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
     .btn {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 14px 28px;
@@ -317,10 +319,12 @@
 
     /* ── DISCOVERS ── */
     .discovers-section { background: var(--bg2); }
+    .discovers-section .section-inner { text-align: center; }
     .discovers-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 28px; margin-top: 44px;
+      text-align: left;
     }
     .discover-item {
       display: flex; gap: 20px; align-items: flex-start;
@@ -451,7 +455,7 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
 
-      .hero-content { padding: 0 28px 56px; }
+      .hero-content { padding: 0 24px 56px; }
       .hero-scroll { display: none; }
 
       .book-grid { grid-template-columns: 1fr; gap: 36px; }
