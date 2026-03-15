@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before the Word — Praveen Maloo</title>
+  <meta name="description" content="Ancient India, Artificial Intelligence, and the Language Between. A book by Praveen Maloo tracing the extraordinary parallel between Sanskrit philosophy and the architecture of artificial intelligence.">
+  <meta property="og:title" content="Before the Word — Praveen Maloo">
+  <meta property="og:description" content="What is language before it becomes sound? Ancient India had an answer. AI is rediscovering the question.">
+  <meta property="og:image" content="cover.jpg">
+  <meta property="og:type" content="book">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0b14;
+      --bg2:       #10101e;
+      --bg3:       #16162a;
+      --crimson:   #8B1A1A;
+      --crimson2:  #a52020;
+      --gold:      #c4a35a;
+      --gold2:     #e8c97a;
+      --cream:     #ede6d8;
+      --cream2:    #f7f2ea;
+      --muted:     #8a8a9a;
+      --border:    rgba(196,163,90,0.18);
+      --serif:     'Crimson Pro', Georgia, serif;
+      --sans:      'Instrument Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(11,11,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-title {
+      font-family: var(--sans); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.12em;
+      color: var(--gold); text-transform: uppercase; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-family: var(--sans); font-size: 13px; font-weight: 400;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 80px 80px;
+      gap: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 80% 40%, rgba(139,26,26,0.12) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 60% at 20% 80%, rgba(196,163,90,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-text { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px;
+      background: var(--gold);
+    }
+    h1 {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(52px, 6vw, 82px);
+      line-height: 1.05;
+      color: var(--cream2);
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    h1 em { font-style: italic; color: var(--gold2); }
+    .hero-subtitle {
+      font-family: var(--sans); font-size: 13px; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 32px; line-height: 1.6;
+    }
+    .hero-tagline {
+      font-family: var(--serif); font-size: 22px; font-weight: 300;
+      font-style: italic; color: var(--cream);
+      opacity: 0.85; margin-bottom: 48px;
+      border-left: 2px solid var(--crimson);
+      padding-left: 20px; line-height: 1.5;
+    }
+    .hero-author {
+      font-family: var(--sans); font-size: 14px;
+      color: var(--muted); letter-spacing: 0.06em; margin-bottom: 48px;
+    }
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px;
+      font-family: var(--sans); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      transition: all 0.25s ease; border: none;
+    }
+    .btn-primary {
+      background: var(--crimson); color: var(--cream2);
+    }
+    .btn-primary:hover { background: var(--crimson2); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--gold);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--gold); background: rgba(196,163,90,0.06); }
+    .btn-coming-soon {
+      background: transparent; color: var(--muted);
+      border: 1px solid rgba(138,138,154,0.2);
+      cursor: default; font-style: italic;
+    }
+
+    .hero-cover { position: relative; z-index: 2; display: flex; justify-content: center; }
+    .cover-wrapper {
+      position: relative; display: inline-block;
+    }
+    .cover-wrapper::before {
+      content: '';
+      position: absolute; inset: -20px;
+      background: radial-gradient(ellipse at center, rgba(139,26,26,0.25) 0%, transparent 70%);
+      z-index: -1;
+    }
+    .cover-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: -20px; left: 10%; right: 10%;
+      height: 40px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 70%);
+      filter: blur(8px);
+    }
+    .book-cover {
+      width: 100%; max-width: 340px;
+      box-shadow:
+        0 4px 20px rgba(0,0,0,0.5),
+        0 20px 60px rgba(0,0,0,0.4),
+        4px 8px 32px rgba(139,26,26,0.15);
+      display: block;
+    }
+
+    /* ── SECTION STYLES ── */
+    section { position: relative; }
+
+    .section-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 100px 48px;
+    }
+
+    .section-label {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 24px; height: 1px;
+      background: var(--gold);
+    }
+
+    /* ── THE QUESTION ── */
+    .question-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .question-section .section-inner {
+      padding: 80px 48px;
+    }
+    .big-question {
+      font-family: var(--serif); font-weight: 300; font-style: italic;
+      font-size: clamp(32px, 4.5vw, 58px);
+      color: var(--cream2); line-height: 1.2;
+      max-width: 840px; margin: 0 auto 32px;
+    }
+    .big-question em { color: var(--gold2); font-style: normal; }
+    .question-sub {
+      font-family: var(--sans); font-size: 14px; letter-spacing: 0.08em;
+      color: var(--muted); text-transform: uppercase;
+    }
+
+    /* ── ABOUT THE BOOK ── */
+    .book-section { background: var(--bg); }
+    .book-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    h2 {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(32px, 3.5vw, 46px);
+      line-height: 1.2; color: var(--cream2);
+      margin-bottom: 28px;
+    }
+    .body-text {
+      font-size: 19px; line-height: 1.78;
+      color: var(--cream); opacity: 0.88;
+      margin-bottom: 20px;
+    }
+    .body-text + .body-text { margin-top: 0; }
+
+    /* ── THEMES ── */
+    .themes-section { background: var(--bg3); }
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px; margin-top: 56px;
+    }
+    .theme-card {
+      background: var(--bg2); padding: 40px 36px;
+      border-top: 2px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .theme-card:hover {
+      border-top-color: var(--crimson);
+      background: rgba(139,26,26,0.06);
+    }
+    .theme-ancient {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .theme-arrow {
+      font-family: var(--sans); font-size: 22px; color: var(--crimson);
+      margin: 8px 0; opacity: 0.6;
+    }
+    .theme-modern {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .theme-desc {
+      font-family: var(--serif); font-size: 16px;
+      color: var(--cream); opacity: 0.72; line-height: 1.6;
+    }
+
+    /* ── DISCOVERS ── */
+    .discovers-section { background: var(--bg2); }
+    .discovers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px; margin-top: 48px;
+    }
+    .discover-item {
+      display: flex; gap: 20px; align-items: flex-start;
+    }
+    .discover-num {
+      font-family: var(--sans); font-size: 11px; font-weight: 600;
+      color: var(--crimson); letter-spacing: 0.08em;
+      margin-top: 4px; flex-shrink: 0; width: 24px;
+    }
+    .discover-text {
+      font-family: var(--serif); font-size: 17px;
+      color: var(--cream); opacity: 0.85; line-height: 1.6;
+    }
+
+    /* ── AUTHOR ── */
+    .author-section { background: var(--bg); }
+    .author-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px; align-items: start;
+    }
+    .author-photo-wrap {
+      position: relative;
+    }
+    .author-photo {
+      width: 100%; border-radius: 50%;
+      display: block;
+      border: 1px solid var(--border);
+      filter: grayscale(20%);
+    }
+    .author-photo-wrap::after {
+      content: '';
+      position: absolute; inset: -8px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,163,90,0.15);
+    }
+    .author-name {
+      font-family: var(--serif); font-weight: 400;
+      font-size: 32px; color: var(--cream2);
+      margin-bottom: 6px;
+    }
+    .author-handle {
+      font-family: var(--sans); font-size: 13px;
+      color: var(--muted); letter-spacing: 0.06em;
+      margin-bottom: 28px;
+    }
+
+    /* ── DIVIDER ── */
+    .ornament {
+      text-align: center; color: var(--gold);
+      opacity: 0.3; font-size: 20px;
+      padding: 20px 0;
+      letter-spacing: 16px;
+    }
+
+    /* ── EMAIL SIGNUP ── */
+    .signup-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .signup-section .section-inner { padding: 80px 48px; }
+    .signup-title {
+      font-family: var(--serif); font-weight: 300; font-style: italic;
+      font-size: clamp(28px, 3.5vw, 42px);
+      color: var(--cream2); margin-bottom: 16px;
+    }
+    .signup-sub {
+      font-family: var(--sans); font-size: 14px;
+      color: var(--muted); margin-bottom: 40px;
+      letter-spacing: 0.04em;
+    }
+    .signup-form {
+      display: flex; gap: 0; max-width: 480px; margin: 0 auto;
+      border: 1px solid var(--border);
+    }
+    .signup-form input {
+      flex: 1; padding: 16px 20px;
+      background: transparent; border: none; outline: none;
+      font-family: var(--sans); font-size: 14px;
+      color: var(--cream); letter-spacing: 0.04em;
+    }
+    .signup-form input::placeholder { color: var(--muted); }
+    .signup-form button {
+      padding: 16px 24px;
+      background: var(--crimson); color: var(--cream2); border: none;
+      font-family: var(--sans); font-size: 12px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .signup-form button:hover { background: var(--crimson2); }
+    .signup-note {
+      font-family: var(--sans); font-size: 12px;
+      color: var(--muted); margin-top: 16px; opacity: 0.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .footer-title {
+      font-family: var(--serif); font-size: 18px;
+      color: var(--gold); font-style: italic;
+    }
+    .footer-copy {
+      font-family: var(--sans); font-size: 12px;
+      color: var(--muted); letter-spacing: 0.04em;
+    }
+    .footer-links {
+      display: flex; gap: 24px; list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--sans); font-size: 12px;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 100px 32px 60px;
+        gap: 48px;
+      }
+      .hero-cover { order: -1; }
+      .book-cover { max-width: 220px; }
+      .book-grid { grid-template-columns: 1fr; gap: 40px; }
+      .author-grid { grid-template-columns: 160px 1fr; gap: 32px; }
+      .section-inner { padding: 64px 32px; }
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; align-items: flex-start; padding: 32px; }
+    }
+    @media (max-width: 600px) {
+      .author-grid { grid-template-columns: 1fr; }
+      .author-photo { max-width: 140px; }
+      .signup-form { flex-direction: column; }
+      .signup-form button { padding: 14px; }
+      footer { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-title">Before the Word</a>
+  <ul class="nav-links">
+    <li><a href="#book">The Book</a></li>
+    <li><a href="#themes">Themes</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#get">Get It</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Praveen Maloo</div>
+    <h1>Before<br>the <em>Word</em></h1>
+    <div class="hero-subtitle">Exploring the Origin of Language,<br>Consciousness, and Connection</div>
+    <div class="hero-tagline">
+      Ancient India, Artificial Intelligence,<br>and the Language Between
+    </div>
+    <div class="hero-author">By Praveen Maloo</div>
+    <div class="btn-group">
+      <a href="#get" class="btn btn-primary">Get the Book</a>
+      <a href="#book" class="btn btn-secondary">Read More</a>
+    </div>
+  </div>
+  <div class="hero-cover">
+    <div class="cover-wrapper">
+      <img src="cover.jpg" alt="Before the Word — book cover" class="book-cover">
+    </div>
+  </div>
+</section>
+
+<!-- ── THE QUESTION ── -->
+<section class="question-section">
+  <div class="section-inner">
+    <p class="big-question">
+      What did ancient Indian grammarians understand about <em>language</em> that modern linguists are only now rediscovering?
+    </p>
+    <p class="question-sub">The question at the centre of this book</p>
+  </div>
+</section>
+
+<!-- ── ABOUT THE BOOK ── -->
+<section class="book-section" id="book">
+  <div class="section-inner">
+    <div class="book-grid">
+      <div class="reveal">
+        <div class="section-label">About the Book</div>
+        <h2>Two traditions, twenty-five centuries apart, asking the same question</h2>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="body-text">
+          In <em>Before the Word</em>, Praveen Maloo traces the extraordinary parallel between Sanskrit philosophy and the architecture of artificial intelligence — two traditions separated by twenty-five centuries, both asking the same radical question: what is language before it becomes sound?
+        </p>
+        <p class="body-text">
+          From Pāṇini's generative grammar to the transformer attention mechanism; from Bhartṛhari's sphota theory to the embedding space of a large language model; from the four levels of Vāk to the layers of a neural network — this book argues that the conversation between ancient India and contemporary AI is not a metaphor. It is a living dialogue. And we are only beginning to hear it.
+        </p>
+        <p class="body-text">
+          Fluency is not intelligence. The Indian tradition had a precise vocabulary for the difference. We desperately need that vocabulary right now.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THEMES ── -->
+<section class="themes-section" id="themes">
+  <div class="section-inner">
+    <div class="section-label reveal">The Parallels</div>
+    <h2 class="reveal">Ancient insight meets modern architecture</h2>
+    <div class="themes-grid">
+
+      <div class="theme-card reveal">
+        <div class="theme-ancient">Pāṇini's Grammar · 350 BCE</div>
+        <div class="theme-arrow">↓</div>
+        <div class="theme-modern">The Transformer Architecture</div>
+        <div class="theme-desc">A finite rule system that generates infinite valid sentences — the oldest formal generative model in human history, rediscovered in silicon 2,300 years later.</div>
+      </div>
+
+      <div class="theme-card reveal reveal-delay-1">
+        <div class="theme-ancient">Bhartṛhari's Sphota Theory</div>
+        <div class="theme-arrow">↓</div>
+        <div class="theme-modern">The Embedding Space</div>
+        <div class="theme-desc">The word as an indivisible unit of meaning that precedes sound — a theory of semantic representation that anticipates the vector embeddings at the heart of modern NLP.</div>
+      </div>
+
+      <div class="theme-card reveal reveal-delay-2">
+        <div class="theme-ancient">The Four Levels of Vāk</div>
+        <div class="theme-arrow">↓</div>
+        <div class="theme-modern">The Layers of a Neural Network</div>
+        <div class="theme-desc">From Parā (pure undifferentiated potential) to Vaikharī (articulated sound) — a Vedic map of speech that illuminates exactly what large language models can and cannot do.</div>
+      </div>
+
+      <div class="theme-card reveal reveal-delay-3">
+        <div class="theme-ancient">Pramāṇa — Valid Knowledge</div>
+        <div class="theme-arrow">↓</div>
+        <div class="theme-modern">AI Epistemology</div>
+        <div class="theme-desc">The Indian theory of testimony as a source of knowledge — and why it matters profoundly when the testimony comes from a machine that has no relationship to truth.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DISCOVERS ── -->
+<section class="discovers-section">
+  <div class="section-inner">
+    <div class="section-label reveal">What You'll Find Inside</div>
+    <h2 class="reveal">Five ideas this book will change how you see</h2>
+    <div class="discovers-grid">
+      <div class="discover-item reveal">
+        <div class="discover-num">01</div>
+        <div class="discover-text">Why Pāṇini's 4th-century grammar is considered the first formal generative system — and what it shares with the architecture of GPT.</div>
+      </div>
+      <div class="discover-item reveal reveal-delay-1">
+        <div class="discover-num">02</div>
+        <div class="discover-text">The four levels of Vāk and what they reveal about the layers of knowing that a language model cannot access.</div>
+      </div>
+      <div class="discover-item reveal reveal-delay-2">
+        <div class="discover-num">03</div>
+        <div class="discover-text">How Bhartṛhari's theory of the indivisible word anticipates the embedding space of a large language model.</div>
+      </div>
+      <div class="discover-item reveal reveal-delay-3">
+        <div class="discover-num">04</div>
+        <div class="discover-text">What the Indian epistemological tradition tells us about the validity of testimony — and why it matters when the speaker is a machine.</div>
+      </div>
+      <div class="discover-item reveal">
+        <div class="discover-num">05</div>
+        <div class="discover-text">Why fluency is not intelligence — and why the Indian tradition had a precise vocabulary for the difference, 2,000 years before we needed it.</div>
+      </div>
+      <div class="discover-item reveal reveal-delay-1">
+        <div class="discover-num">06</div>
+        <div class="discover-text">The living dialogue between the oldest grammar and the newest machine — and what it asks of us right now.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AUTHOR ── -->
+<section class="author-section" id="author">
+  <div class="section-inner">
+    <div class="section-label reveal">The Author</div>
+    <div class="author-grid">
+      <div class="reveal">
+        <div class="author-photo-wrap">
+          <img src="author.png" alt="Praveen Maloo" class="author-photo">
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="author-name">Praveen Maloo</div>
+        <div class="author-handle">Entrepreneur · Polyglot · Author</div>
+        <p class="body-text">
+          Praveen Maloo grew up in India, where education meant Sanskrit alongside mathematics — language was never merely a tool. He has since built two technology companies in the United States, travelled through 170+ countries, and speaks seven languages — each one a different window onto the world.
+        </p>
+        <p class="body-text">
+          That restlessness made him attentive to what falls between languages, and to the ancient traditions that took those gaps seriously. He writes at the intersection of Indian philosophy, cognitive science, and artificial intelligence.
+        </p>
+        <p class="body-text" style="font-style:italic; opacity:0.75;">
+          "That conversation — between the oldest grammar and the newest machine — is what this book is about."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GET IT ── -->
+<section id="get" style="background: var(--bg3); border-top: 1px solid var(--border);">
+  <div class="section-inner" style="text-align: center;">
+    <div class="section-label reveal" style="justify-content: center;">
+      <span style="display:flex;align-items:center;gap:12px;">
+        <span style="width:24px;height:1px;background:var(--gold);display:block;"></span>
+        Get the Book
+      </span>
+    </div>
+    <h2 class="reveal" style="margin-bottom: 16px;">Available now</h2>
+    <p class="reveal reveal-delay-1" style="font-family: var(--sans); font-size: 14px; color: var(--muted); max-width: 400px; margin: 0 auto 48px; letter-spacing: 0.04em;">
+      Kindle ebook · Paperback · Available worldwide
+    </p>
+    <div class="btn-group reveal reveal-delay-2" style="justify-content: center;">
+      <a href="#" class="btn btn-coming-soon">Kindle Edition — Coming Soon</a>
+      <a href="#" class="btn btn-coming-soon">Paperback — Coming Soon</a>
+    </div>
+    <p class="reveal reveal-delay-3" style="font-family: var(--sans); font-size: 12px; color: var(--muted); margin-top: 20px; opacity: 0.6;">
+      Links will be live within 72 hours · Sign up below to be notified
+    </p>
+  </div>
+</section>
+
+<!-- ── EMAIL SIGNUP ── -->
+<section class="signup-section">
+  <div class="section-inner">
+    <div class="signup-title reveal">Read the first chapter, free</div>
+    <p class="signup-sub reveal reveal-delay-1">
+      Enter your email and we'll send you the opening chapter and a guide to the Vāk framework.
+    </p>
+    <!-- Replace action URL with your Mailchimp or ConvertKit form endpoint -->
+    <form class="signup-form reveal reveal-delay-2" action="#" method="POST">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit">Send it</button>
+    </form>
+    <p class="signup-note reveal reveal-delay-3">No spam. Just the book and occasional dispatches on language and AI.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-title">Before the Word</div>
+  <div class="footer-copy">© 2026 Praveen Maloo · All rights reserved</div>
+  <ul class="footer-links">
+    <li><a href="mailto:praveen@beforetheword.com">Contact</a></li>
+    <li><a href="#book">About</a></li>
+    <li><a href="#get">Buy</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
