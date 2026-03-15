@@ -115,24 +115,25 @@
       position: absolute; inset: 0;
       background-image: url('cover.jpg');
       background-size: cover;
-      background-position: center 35%;
+      background-position: center 62%;
       background-repeat: no-repeat;
       transform: scale(1.04);
       transition: transform 8s ease;
+      filter: brightness(0.55) saturate(0.85);
     }
     .hero-bg.loaded { transform: scale(1); }
 
-    /* Overlay: heavy at top (suppress cover title), lighter in mid (show art), solid at bottom (readability) */
+    /* Overlay: nearly opaque top (kill cover text), transparent window in middle (show mandala), solid bottom */
     .hero-overlay {
       position: absolute; inset: 0;
       background:
         linear-gradient(to bottom,
-          rgba(11,11,20,0.93) 0%,
-          rgba(11,11,20,0.88) 15%,
-          rgba(11,11,20,0.55) 35%,
-          rgba(11,11,20,0.45) 50%,
-          rgba(11,11,20,0.70) 65%,
-          rgba(11,11,20,0.92) 80%,
+          rgba(11,11,20,0.98) 0%,
+          rgba(11,11,20,0.92) 10%,
+          rgba(11,11,20,0.55) 28%,
+          rgba(11,11,20,0.35) 45%,
+          rgba(11,11,20,0.60) 62%,
+          rgba(11,11,20,0.90) 78%,
           rgba(11,11,20,1.00) 100%
         );
     }
