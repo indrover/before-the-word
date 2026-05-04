@@ -331,7 +331,7 @@
     }
     .discover-num {
       font-family: var(--sans); font-size: 11px; font-weight: 600;
-      color: var(--muted); letter-spacing: 0.08em;
+      color: var(--gold); letter-spacing: 0.08em;
       margin-top: 4px; flex-shrink: 0; width: 24px;
     }
     .discover-text {
@@ -444,10 +444,11 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.30s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.60s; }
+    .reveal-delay-5 { transition-delay: 0.75s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -628,11 +629,11 @@
         <div class="discover-num">04</div>
         <div class="discover-text">What the Indian epistemological tradition tells us about the validity of testimony — and why it matters when the speaker is a machine.</div>
       </div>
-      <div class="discover-item reveal">
+      <div class="discover-item reveal reveal-delay-4">
         <div class="discover-num">05</div>
         <div class="discover-text">Why fluency is not intelligence — and why the Indian tradition had a precise vocabulary for the difference, 2,000 years before we needed it.</div>
       </div>
-      <div class="discover-item reveal reveal-delay-1">
+      <div class="discover-item reveal reveal-delay-5">
         <div class="discover-num">06</div>
         <div class="discover-text">The living dialogue between the oldest grammar and the newest machine — and what it asks of us right now.</div>
       </div>
