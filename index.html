@@ -31,7 +31,7 @@
       --sans:      'Instrument Sans', system-ui, sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       background: var(--bg);
@@ -460,6 +460,7 @@
       .hero-scroll { display: none; }
 
       .book-grid { grid-template-columns: 1fr; gap: 36px; }
+      .themes-grid { grid-template-columns: 1fr; }
       .author-grid { grid-template-columns: 140px 1fr; gap: 28px; }
       .section-inner { padding: 56px 28px; }
       .question-section .section-inner,
@@ -471,6 +472,9 @@
       .hero-content { padding: 0 20px 48px; }
       h1 { font-size: clamp(44px, 13vw, 60px); }
 
+      .btn { width: 100%; justify-content: center; }
+      .btn-group { flex-direction: column; align-items: stretch; }
+
       .author-grid { grid-template-columns: 1fr; gap: 24px; }
       .author-photo { max-width: 120px; }
 
@@ -481,8 +485,6 @@
       .question-section .section-inner,
       .signup-section .section-inner { padding: 48px 20px; }
 
-      .themes-grid { grid-template-columns: 1fr; }
-      .discovers-grid { grid-template-columns: 1fr; }
       .discovers-grid { grid-template-columns: 1fr; }
 
       footer { gap: 14px; padding: 24px 20px; }
