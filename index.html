@@ -250,6 +250,60 @@
       background: var(--gold);
     }
 
+    /* ── REVIEWS ── */
+    .reviews-section {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .reviews-section .section-inner { padding: 72px 48px; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px; margin-top: 44px;
+    }
+    .review-card {
+      background: var(--bg2);
+      padding: 36px 32px;
+      border-left: 2px solid var(--gold);
+    }
+    .review-stars {
+      display: flex; gap: 4px; margin-bottom: 16px;
+    }
+    .star {
+      width: 16px; height: 16px; color: var(--gold);
+      font-size: 15px; line-height: 1;
+    }
+    .star.empty { color: var(--bg3); }
+    .review-title {
+      font-family: var(--serif); font-weight: 400;
+      font-size: 20px; color: var(--cream2);
+      margin-bottom: 14px; line-height: 1.3;
+    }
+    .review-text {
+      font-family: var(--serif); font-size: 17px;
+      color: var(--cream); opacity: 0.82;
+      line-height: 1.7; margin-bottom: 20px;
+      font-style: italic;
+    }
+    .review-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .review-author {
+      font-family: var(--sans); font-size: 12px; font-weight: 500;
+      color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .review-source {
+      font-family: var(--sans); font-size: 11px;
+      color: var(--muted); opacity: 0.6; letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 700px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-section .section-inner { padding: 56px 20px; }
+    }
+
     /* ── THE QUESTION ── */
     .question-section {
       background: var(--bg2);
@@ -542,6 +596,40 @@
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section class="reviews-section">
+  <div class="section-inner">
+    <div class="section-label reveal" style="justify-content:center;">Reader Reviews</div>
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="review-title">Intriguing connection between Sanskrit and LLMs</div>
+        <div class="review-text">"A genuinely original premise: that the clearest precedent for modern language AI isn't 20th-century computer science but Panini, a Sanskrit grammarian working twenty-five centuries ago. Before the Word argues that his Ashtadhyayi, with its ordered rules deriving valid forms from roots and affixes, is recognizably a generative grammar wrestling with the same problems that face anyone building a machine to produce language. The analogy could easily feel forced, but the restraint is what sells it: enough technical detail for a linguist, enough context for a general reader, and no overselling. You come away understanding both Panini and language models slightly differently than you did going in."</div>
+        <div class="review-meta">
+          <span class="review-author">Rahul S.</span>
+          <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; Jun 2026</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+        </div>
+        <div class="review-title">Thought-provoking, though not always an easy read!</div>
+        <div class="review-text">"Maloo moves quickly between Sanskrit philosophy, cognitive science, and machine learning . . so the first few chapters take some effort. But once it clicks, the book opens up slowly. The central argument is simple but hard to shake: we've built systems that produce language fluently without anyone asking what language actually is. Not a book for practical takeaways. A book for a genuinely original angle on languages and artificial intelligence."</div>
+        <div class="review-meta">
+          <span class="review-author">Verified Reviewer</span>
+          <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; May 2026</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- ── THE QUESTION ── -->
