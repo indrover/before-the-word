@@ -283,9 +283,25 @@
     .review-text {
       font-family: var(--serif); font-size: 17px;
       color: var(--cream); opacity: 0.82;
-      line-height: 1.7; margin-bottom: 20px;
+      line-height: 1.7; margin-bottom: 8px;
       font-style: italic;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
+    .review-text.expanded {
+      display: block;
+      overflow: visible;
+    }
+    .review-toggle {
+      background: none; border: none; padding: 0;
+      font-family: var(--sans); font-size: 11px;
+      color: var(--gold); opacity: 0.75;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; margin-bottom: 16px;
+    }
+    .review-toggle:hover { opacity: 1; }
     .review-meta {
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 8px;
@@ -613,6 +629,7 @@
         </div>
         <div class="review-title">Intriguing connection between Sanskrit and LLMs</div>
         <div class="review-text">"A genuinely original premise: that the clearest precedent for modern language AI isn't 20th-century computer science but Panini, a Sanskrit grammarian working twenty-five centuries ago. Before the Word argues that his Ashtadhyayi, with its ordered rules deriving valid forms from roots and affixes, is recognizably a generative grammar wrestling with the same problems that face anyone building a machine to produce language. The analogy could easily feel forced, but the restraint is what sells it: enough technical detail for a linguist, enough context for a general reader, and no overselling. You come away understanding both Panini and language models slightly differently than you did going in."</div>
+        <button class="review-toggle" aria-expanded="false">Show more</button>
         <div class="review-meta">
           <span class="review-author">Rahul S.</span>
           <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; Jun 2026</span>
@@ -625,6 +642,7 @@
         </div>
         <div class="review-title">Thought-provoking, though not always an easy read!</div>
         <div class="review-text">"Maloo moves quickly between Sanskrit philosophy, cognitive science, and machine learning . . so the first few chapters take some effort. But once it clicks, the book opens up slowly. The central argument is simple but hard to shake: we've built systems that produce language fluently without anyone asking what language actually is. Not a book for practical takeaways. A book for a genuinely original angle on languages and artificial intelligence."</div>
+        <button class="review-toggle" aria-expanded="false">Show more</button>
         <div class="review-meta">
           <span class="review-author">Verified Reviewer</span>
           <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; May 2026</span>
@@ -637,6 +655,7 @@
         </div>
         <div class="review-title">Great read</div>
         <div class="review-text">"Very interesting angle, and argument in the book. Lots of interesting Indian history applied very well to the age of AI."</div>
+        <button class="review-toggle" aria-expanded="false">Show more</button>
         <div class="review-meta">
           <span class="review-author">Ansuman A. &nbsp;· Verified</span>
           <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; Jul 2026</span>
@@ -851,6 +870,16 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.review-toggle').forEach(btn => {
+    const text = btn.previousElementSibling;
+    if (text.scrollHeight <= text.clientHeight + 4) { btn.style.display = 'none'; return; }
+    btn.addEventListener('click', () => {
+      const expanded = text.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Show less' : 'Show more';
+      btn.setAttribute('aria-expanded', expanded);
+    });
+  });
 </script>
 </body>
 </html>
