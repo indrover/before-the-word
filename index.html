@@ -259,7 +259,7 @@
     .reviews-section .section-inner { padding: 72px 48px; }
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px; margin-top: 44px;
     }
     .review-card {
@@ -299,7 +299,10 @@
       color: var(--muted); opacity: 0.6; letter-spacing: 0.06em;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
       .reviews-grid { grid-template-columns: 1fr; }
       .reviews-section .section-inner { padding: 56px 20px; }
     }
@@ -625,6 +628,18 @@
         <div class="review-meta">
           <span class="review-author">Verified Reviewer</span>
           <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; May 2026</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="review-title">Great read</div>
+        <div class="review-text">"Very interesting angle, and argument in the book. Lots of interesting Indian history applied very well to the age of AI."</div>
+        <div class="review-meta">
+          <span class="review-author">Ansuman A. &nbsp;· Verified</span>
+          <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; Jul 2026</span>
         </div>
       </div>
 
