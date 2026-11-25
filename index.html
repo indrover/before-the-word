@@ -259,7 +259,7 @@
     .reviews-section .section-inner { padding: 72px 48px; }
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 32px; margin-top: 44px;
     }
     .review-card {
@@ -322,7 +322,7 @@
       color: var(--muted); opacity: 0.6; letter-spacing: 0.06em;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       .reviews-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
@@ -666,6 +666,19 @@
         <div class="review-meta">
           <span class="review-author">Ansuman A. &nbsp;· Verified</span>
           <span class="review-source">Barnes &amp; Noble &nbsp;·&nbsp; Jul 2026</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="review-title">Delighted once again by Praveen's work!</div>
+        <div class="review-text">"I picked up this book because I was totally thrilled by Praveen's other work. Before the Word is great reading too. You can really tell that he has deep knowledge across many different fields and is able to inspire you with his words."</div>
+        <button class="review-toggle" aria-expanded="false">Show more</button>
+        <div class="review-meta">
+          <span class="review-author">Jacob Smith &nbsp;· Verified</span>
+          <span class="review-source">Amazon Germany &nbsp;·&nbsp; Nov 2026</span>
         </div>
       </div>
 
