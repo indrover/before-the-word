@@ -554,6 +554,41 @@
     .reveal-delay-4 { transition-delay: 0.60s; }
     .reveal-delay-5 { transition-delay: 0.75s; }
 
+    /* ── WRITING SECTION ── */
+    .writing-section { background: var(--bg2); border-top: 1px solid var(--border); }
+    .writing-intro {
+      font-family: var(--serif); font-size: 18px; color: var(--cream);
+      opacity: 0.7; line-height: 1.7; max-width: 580px;
+      margin: 20px auto 48px; text-align: center;
+    }
+    .writing-posts { display: flex; flex-direction: column; gap: 0; }
+    .writing-post {
+      display: grid; grid-template-columns: 48px 1fr 24px;
+      align-items: start; gap: 24px;
+      padding: 28px 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; transition: background 0.15s;
+    }
+    .writing-post:first-child { border-top: 1px solid var(--border); }
+    .writing-post:hover { background: var(--bg3); margin: 0 -48px; padding-left: 48px; padding-right: 48px; }
+    .writing-post-num {
+      font-family: var(--sans); font-size: 11px; font-weight: 600;
+      color: var(--gold); letter-spacing: 0.1em; padding-top: 4px;
+    }
+    .writing-post-title {
+      font-family: var(--serif); font-size: 19px; font-weight: 400;
+      color: var(--cream2); line-height: 1.35; margin-bottom: 8px;
+    }
+    .writing-post-sub {
+      font-family: var(--sans); font-size: 13px; color: var(--muted);
+      line-height: 1.6;
+    }
+    .writing-post-arrow {
+      font-size: 18px; color: var(--gold); opacity: 0;
+      transition: opacity 0.15s; padding-top: 2px;
+    }
+    .writing-post:hover .writing-post-arrow { opacity: 1; }
+    .writing-cta { margin-top: 40px; display: flex; justify-content: center; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
@@ -606,6 +641,7 @@
     <li><a href="#themes">Themes</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="#get">Get It</a></li>
+    <li><a href="/blog/">Writing</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -619,6 +655,7 @@
   <a href="#themes" class="menu-link">Themes</a>
   <a href="#author" class="menu-link">Author</a>
   <a href="#get" class="menu-link">Get It</a>
+  <a href="/blog/" class="menu-link">Writing</a>
 </div>
 
 <!-- ── HERO — FULL BLEED ── -->
@@ -918,6 +955,43 @@
 </section>
 
 
+<!-- ── WRITING TEASER ── -->
+<section class="writing-section">
+  <div class="section-inner">
+    <div class="section-label reveal" style="justify-content:center;">Writing</div>
+    <p class="writing-intro reveal">Essays at the intersection of language, artificial intelligence, and Sanskrit philosophy — written from the perspective of a computer scientist who went looking for the origin of the word.</p>
+    <div class="writing-posts">
+      <a href="/blog/grammar-of-reality/" class="writing-post reveal">
+        <span class="writing-post-num">01</span>
+        <div class="writing-post-body">
+          <div class="writing-post-title">The Grammar of Reality</div>
+          <div class="writing-post-sub">We built language models to predict text. They turned out to encode the world. Indian grammarians figured this out 1,600 years ago.</div>
+        </div>
+        <span class="writing-post-arrow">→</span>
+      </a>
+      <a href="/blog/" class="writing-post reveal reveal-delay-1">
+        <span class="writing-post-num">02</span>
+        <div class="writing-post-body">
+          <div class="writing-post-title">The Four Levels of Vāk: What LLMs Process and What They Miss</div>
+          <div class="writing-post-sub">Ancient Indian philosophy described four levels of speech. Modern language models operate fluently at one of them. The other three illuminate what is absent.</div>
+        </div>
+        <span class="writing-post-arrow">→</span>
+      </a>
+      <a href="/blog/" class="writing-post reveal reveal-delay-2">
+        <span class="writing-post-num">03</span>
+        <div class="writing-post-body">
+          <div class="writing-post-title">Sphoṭa and the Embedding Space</div>
+          <div class="writing-post-sub">Bhartrhari's theory of the unitary meaning-bearing word anticipates the vector space in which a language model represents meaning — and reveals where the analogy breaks.</div>
+        </div>
+        <span class="writing-post-arrow">→</span>
+      </a>
+    </div>
+    <div class="writing-cta reveal reveal-delay-3">
+      <a href="/blog/" class="btn btn-secondary">All Essays</a>
+    </div>
+  </div>
+</section>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-title">Before the Word</div>
@@ -926,6 +1000,7 @@
     <li><a href="mailto:praveen@beforetheword.com">Contact</a></li>
     <li><a href="#book">About</a></li>
     <li><a href="#get">Buy</a></li>
+    <li><a href="/blog/">Writing</a></li>
   </ul>
 </footer>
 

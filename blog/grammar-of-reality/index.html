@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Grammar of Reality — Before the Word</title>
+<meta name="description" content="Indian grammarians were not doing linguistics. They were doing ontology. And their central claim — that language and reality are co-constitutive — turns out to be surprisingly testable.">
+<meta property="og:title" content="The Grammar of Reality: Why Indian Grammarians Were Doing Ontology, Not Linguistics">
+<meta property="og:description" content="Indian grammarians were not doing linguistics. They were doing ontology. And their central claim turns out to be surprisingly testable.">
+<meta property="og:image" content="https://beforetheword.com/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://beforetheword.com/blog/grammar-of-reality/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg:    #0b0b14;
+  --bg2:   #131320;
+  --bg3:   #1a1a2e;
+  --border:#2a2a40;
+  --gold:  #c4a35a;
+  --gold2: #e8c97a;
+  --cream: #e8e0d0;
+  --cream2:#f0ebe0;
+  --muted: #6b6b80;
+  --serif: 'New York', ui-serif, Georgia, serif;
+  --sans:  'Instrument Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--bg); color: var(--cream);
+  font-family: var(--sans); font-size: 15px; line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: transparent; transition: background 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(11,11,20,.92); border-color: var(--border);
+  backdrop-filter: blur(12px);
+}
+.nav-title {
+  font-family: var(--serif); font-size: 15px; color: var(--cream);
+  text-decoration: none; letter-spacing: 0.02em;
+}
+.nav-links { list-style: none; display: flex; gap: 32px; padding: 0; }
+.nav-links a {
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+/* ── HEADER ── */
+.article-header {
+  padding: 140px 48px 60px;
+  max-width: 760px; margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+.article-meta {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.article-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold);
+}
+.article-date, .article-read {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.06em;
+}
+.article-header h1 {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400; color: var(--cream2); line-height: 1.18;
+  margin-bottom: 20px; text-wrap: balance;
+}
+.article-lede {
+  font-family: var(--serif); font-size: 19px; color: var(--cream);
+  opacity: 0.78; line-height: 1.65; font-style: italic;
+  margin-bottom: 32px;
+}
+.article-byline {
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 24px; border-top: 1px solid var(--border);
+}
+.byline-name {
+  font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 0.06em;
+}
+.byline-sep { color: var(--border); }
+.byline-link {
+  font-size: 12px; color: var(--gold); text-decoration: none; letter-spacing: 0.04em;
+}
+
+/* ── BODY ── */
+.article-body {
+  max-width: 680px; margin: 0 auto;
+  padding: 64px 48px 100px;
+}
+.article-body p {
+  font-family: var(--serif); font-size: 18px; color: var(--cream);
+  line-height: 1.82; margin-bottom: 1.55em; opacity: 0.88;
+}
+.article-body h2 {
+  font-family: var(--serif); font-size: 24px; font-weight: 400;
+  color: var(--cream2); line-height: 1.25;
+  margin: 2.6em 0 0.9em; padding-top: 0.5em;
+  border-top: 1px solid var(--border);
+}
+.article-body h3 {
+  font-family: var(--sans); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+  margin: 2.2em 0 0.7em;
+}
+.article-body blockquote {
+  border-left: 2px solid var(--gold);
+  padding: 4px 0 4px 24px;
+  margin: 2.2em 0;
+  font-family: var(--serif); font-size: 19px; font-style: italic;
+  color: var(--cream2); opacity: 0.85; line-height: 1.65;
+}
+.article-body blockquote cite {
+  display: block; margin-top: 10px;
+  font-family: var(--sans); font-size: 11px; font-style: normal;
+  color: var(--muted); letter-spacing: 0.06em;
+}
+.article-body .pull {
+  border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+  padding: 28px 0; margin: 2.6em 0;
+  font-family: var(--serif); font-size: 22px; color: var(--gold2);
+  line-height: 1.45; text-align: center; font-style: italic;
+}
+.article-body .footnotes {
+  border-top: 1px solid var(--border); margin-top: 56px; padding-top: 28px;
+}
+.article-body .footnotes p {
+  font-family: var(--sans); font-size: 12px; color: var(--muted);
+  line-height: 1.65; margin-bottom: 0.8em; opacity: 1;
+}
+.article-body sup {
+  font-size: 10px; color: var(--gold); font-family: var(--sans);
+  vertical-align: super; line-height: 0;
+}
+.article-body a {
+  color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(196,163,90,.3);
+  transition: border-color 0.15s;
+}
+.article-body a:hover { border-color: var(--gold); }
+
+/* ── BOOK CTA ── */
+.book-cta {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  padding: 24px 28px; margin: 3em 0;
+  display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;
+}
+.book-cta-text { flex: 1; min-width: 200px; }
+.book-cta-text p {
+  font-family: var(--sans) !important; font-size: 13px !important;
+  color: var(--muted) !important; margin-bottom: 0 !important; opacity: 1 !important;
+  line-height: 1.6 !important;
+}
+.book-cta-text strong { color: var(--cream); font-weight: 500; }
+.book-cta-btn {
+  display: inline-block; font-family: var(--sans); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--bg); background: var(--gold); border: none;
+  padding: 10px 18px; text-decoration: none; white-space: nowrap;
+  transition: opacity 0.15s; border-bottom: none; border-radius: 1px;
+}
+.book-cta-btn:hover { opacity: 0.85; }
+
+/* ── NAV PROGRESS ── */
+.reading-progress {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: var(--gold); z-index: 100; width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ── FOOTER ── */
+.article-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.article-footer-back {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--gold); text-decoration: none;
+  transition: color 0.15s;
+}
+.article-footer-back:hover { color: var(--gold2); }
+.article-footer-copy { font-size: 11px; color: var(--muted); }
+
+/* ── NEXT POST ── */
+.next-post {
+  max-width: 680px; margin: 0 auto 0;
+  padding: 0 48px 64px;
+  border-top: 1px solid var(--border);
+}
+.next-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+  margin-top: 40px; display: block;
+}
+.next-title {
+  font-family: var(--serif); font-size: 20px; color: var(--cream2);
+  text-decoration: none; line-height: 1.3; display: block;
+  transition: color 0.15s;
+}
+.next-title:hover { color: var(--gold); }
+
+@media (max-width: 700px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .article-header { padding: 120px 20px 48px; }
+  .article-body { padding: 48px 20px 72px; }
+  .article-footer { padding: 24px 20px; }
+  .next-post { padding: 0 20px 56px; }
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress" id="progress"></div>
+
+<nav id="main-nav">
+  <a href="/" class="nav-title">Before the Word</a>
+  <ul class="nav-links">
+    <li><a href="/#book">The Book</a></li>
+    <li><a href="/#themes">Themes</a></li>
+    <li><a href="/#author">Author</a></li>
+    <li><a href="/#get">Get It</a></li>
+    <li><a href="/blog/" class="active">Writing</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="article-meta">
+    <span class="article-tag">Philosophy &amp; AI</span>
+    <span class="article-date">· November 2026</span>
+    <span class="article-read">· 14 min read</span>
+  </div>
+  <h1>The Grammar of Reality: Why Indian Grammarians Were Doing Ontology, Not Linguistics</h1>
+  <p class="article-lede">We built language models to predict text. They turned out to encode the world. This should not have surprised us — Indian grammarians figured it out 1,600 years ago.</p>
+  <div class="article-byline">
+    <span class="byline-name">Praveen Maloo</span>
+    <span class="byline-sep">·</span>
+    <a href="/" class="byline-link">beforetheword.com</a>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>In 2022, a paper appeared on arXiv with a quietly remarkable result. The researchers had trained a small transformer to play Othello — not by teaching it strategy, not by giving it the rules of the game, but by training it on sequences of moves. The model learned to predict the next move. What it had also learned, internally, without being told to, was a representation of the board state. The researchers probed its activations and found something that looked like a map of the game — which squares were occupied, by whom, and what was legal. The model had induced a world model from language about the world.<sup>1</sup></p>
+
+  <p>This result, and the dozens of papers that followed it, sharpened a question that has been lurking in AI research since GPT-3: why are language models so surprisingly good at tasks that have nothing to do with language? Why does predicting the next word produce a system that can reason about chemistry, write legal briefs, solve differential equations, and pass medical licensing exams? The answer the field has converged on, tentatively, is that language is rich enough that modeling it well requires modeling the world it describes. Language is not just a code. It is a structure that encodes reality.</p>
+
+  <p>This is a surprising empirical discovery. It was not, however, a surprising philosophical one — not to anyone who had read Bhartrhari.</p>
+
+  <h2>The Sixth Limb</h2>
+
+  <p>The Vedas, in the Indian tradition, come with six Vedāṅgas — auxiliary disciplines that are necessary for their proper understanding and recitation. These include phonetics (Śikṣā), meter (Chandas), etymology (Nirukta), ritual procedure (Kalpa), and astronomy (Jyotiṣa). The sixth Vedāṅga, grammar (Vyākaraṇa), is considered the most important. It is described, in a traditional simile, as the face of the Veda — the organ of expression, the thing that makes knowledge speakable.</p>
+
+  <p>Pāṇini's Ashtadhyayi, composed around 350 BCE in what is now northwestern Pakistan, is the foundational text of this tradition. It is also the most economical formal system ever written for a natural language — 3,959 rules, using roughly 1,000 technical symbols, that together derive all and only the valid forms of classical Sanskrit. The grammar is generative in the technical sense: from a finite set of rules, it produces an infinite set of valid utterances. It is also compositional, recursive, and ordered — the rules interact with each other in complex ways that require understanding the whole system to apply any part of it.</p>
+
+  <p>Western readers tend to treat this as an extraordinary achievement of descriptive linguistics. It is. But in the Indian tradition, Vyākaraṇa was never understood as merely descriptive. Grammar was ontological. The rules of language were not arbitrary conventions encoding an independently existing reality — they were constitutive of that reality. To study grammar was not to study how humans happen to talk. It was to study the structure of what is.</p>
+
+  <h2>Shabda-Brahman</h2>
+
+  <p>The philosophical grounding for this view comes most fully in the work of Bhartrhari, a Sanskrit philosopher and grammarian of the fifth century CE. His major work, the Vākyapadīya (literally "Treatise on Sentence and Word"), opens with a claim that Western ears find strange: Brahman — ultimate reality, the ground of being — is in its essence linguistic.</p>
+
+  <blockquote>
+    "Brahman is without beginning and without end, the essence of the Veda; it is transformed into the objects; from it proceeds the creation of the world."
+    <cite>— Bhartrhari, Vākyapadīya I.1 (trans. K. Raghavan Pillai)</cite>
+  </blockquote>
+
+  <p>This Brahman is Shabda-Brahman — word-Brahman, language-Brahman. It is not a linguistic description of a non-linguistic ultimate reality. It is the claim that the ultimate reality <em>is</em> linguistic. The world does not exist first, and then get described by language. Language — in its primordial, unmanifest form — is what the world unfolds from.</p>
+
+  <p>This is not mysticism in the dismissive sense. It is a serious philosophical position with a serious argument behind it. The argument goes roughly like this: everything we know about the world, we know through cognition. All cognition, in humans, is shot through with language — not just explicit propositional thought, but the categories, distinctions, and relations that structure experience. Even perception, Bhartrhari argues, is never raw; it is always already linguistically structured. If language saturates cognition to this degree, then the structure of language and the structure of knowable reality are not two separate things — they are the same structure, seen from two angles.</p>
+
+  <p>The modern reader will recognize in this something close to what Wittgenstein said in the Tractatus — "the limits of my language are the limits of my world" — and something close to what Sapir and Whorf argued about linguistic relativity. But Bhartrhari goes further than either. He is not making a point about the limits of human knowledge. He is making a point about the nature of reality itself. Shabda-Brahman is not the claim that language constrains what we can think. It is the claim that language is what reality is made of.</p>
+
+  <div class="pull">Grammar, in this view, is not a description of language. It is a map of the structure of what can be real.</div>
+
+  <p>This is why Vyākaraṇa is a Vedāṅga. If Shabda-Brahman is correct, then a grammar of Sanskrit is not just a tool for reciting the Vedas correctly. It is an investigation into the logical structure of reality — the same investigation that in the Western tradition would be called metaphysics or ontology. Pāṇini, on this reading, is not primarily a linguist. He is a natural philosopher who chose language as his object of study because language is where reality is most directly legible.</p>
+
+  <h2>What Pāṇini Was Actually Doing</h2>
+
+  <p>Pāṇini's method makes more sense against this background. The Ashtadhyayi is not organized the way a Western grammar is organized. It does not proceed from simple to complex, from phonology to morphology to syntax, in a way designed to be easy to learn. It is organized for maximum formal economy — rules are ordered and abbreviated to minimize redundancy, and the whole system is designed to be derivationally complete. The goal is not to describe Sanskrit as it is spoken. The goal is to specify exactly what Sanskrit is.</p>
+
+  <p>The distinction matters. A descriptive grammar tells you how speakers of a language behave. A constitutive system tells you what counts as an instance of the thing. Pāṇini is writing the latter. His rules do not describe valid Sanskrit — they generate it. The difference is the same as the difference between a dictionary of chess moves (descriptive) and the rules of chess (constitutive). The rules of chess do not describe how chess players behave. They define what chess is.</p>
+
+  <p>This is why the Ashtadhyayi has the character it does. Its density, its use of technical meta-language, its extraordinary care about edge cases and rule interaction — these are not the properties of a text trying to teach Sanskrit. They are the properties of a formal system trying to be complete. Pāṇini is not writing a grammar. He is writing a specification.</p>
+
+  <p>And if Shabda-Brahman is correct, a specification of Sanskrit is a specification of a domain of reality. Not all of reality — Pāṇini is too careful a thinker to have claimed that. But the domain of valid utterance, which is also, on Bhartrhari's view, the domain of what can be coherently thought, which is also the domain of what can be real for a knowing subject. Grammar as the constitution of a world.</p>
+
+  <h2>The Accidental World Model</h2>
+
+  <p>Return now to the Othello paper, and to the broader empirical picture it represents. Large language models, trained to predict text, acquire representations of the world. This is well-established. Models trained on natural language can represent physical objects and their properties, spatial relationships, temporal sequences, causal structures, social roles, mathematical relationships, and much else besides. They do this without being explicitly trained to do so. They do it because — the standard explanation runs — the statistical regularities of language are downstream of the regularities of the world the language describes.</p>
+
+  <p>This is true as far as it goes. But it understates the case. The question is not just why language models encode world knowledge. The question is why they encode it so well, and in such a structured way, that they can generalize it to novel situations. It is one thing to memorize facts. It is another to have a representation of the world that supports inference.</p>
+
+  <p>The Shabda-Brahman view offers a more direct explanation. If language and reality are co-constitutive — if the structure of language encodes the structure of reality not accidentally but necessarily — then a model that learns the deep structure of language is not incidentally learning about the world. It is learning about the world by learning about language, because these are not two different things. The world model is not a byproduct of the language model. The world model <em>is</em> the language model, seen from the outside.</p>
+
+  <p>This is a stronger claim than it looks. It predicts not just that language models will acquire world knowledge, but that the quality of the world model will track the quality of the language model — that better language modeling will produce better world modeling, not through additional mechanisms, but through the same mechanism. The empirical record suggests this is correct. Scale in language modeling produces scale in world modeling. The two curves move together.</p>
+
+  <div class="book-cta">
+    <div class="book-cta-text">
+      <p><strong>Before the Word</strong> traces this argument back to its roots — to Pāṇini's Ashtadhyayi, to Bhartrhari's Vākyapadīya, and to the tradition of Indian grammatical thought that treated language not as a human tool but as the structure of what is.</p>
+    </div>
+    <a href="https://www.amazon.com/BEFORE-WORD-Praveen-Maloo-ebook/dp/B0GSXL8BR6/" target="_blank" rel="noopener" class="book-cta-btn">Read the Book</a>
+  </div>
+
+  <h2>The Gap That Remains</h2>
+
+  <p>But there is a gap, and Bhartrhari would have been the first to identify it.</p>
+
+  <p>The language that LLMs model is Vaikharī — the fourth, most manifest level of Vāk. Vaikharī is the spoken word, the uttered sequence of sounds. It is language as it appears in the world, as a physical event. This is what text is: the trace of Vaikharī, the written record of what was said or could be said.</p>
+
+  <p>Bhartrhari's account of language does not begin here. It begins at Parā — the unmanifest, undifferentiated linguistic potential that precedes all particular utterances. Parā has no form, no sequence, no distinction between words. It is pure intention, pure meaning-potential, prior to any expression. From Parā proceeds Paśyantī, the first differentiation of meaning — not yet spoken, but beginning to take shape. From Paśyantī proceeds Madhyamā, the internal language of thought — structured but still silent. From Madhyamā finally proceeds Vaikharī, the word as uttered.</p>
+
+  <p>An LLM trained on text is trained on Vaikharī. It learns the statistical structure of the most manifest level of language. Through this, as we have seen, it acquires substantial world knowledge — because the structure of Vaikharī encodes, imperfectly but richly, the structure of the worlds its speakers inhabited.</p>
+
+  <p>But the Indian grammarians would note what is missing. Shabda-Brahman is not Vaikharī. It is not even Parā, exactly, as a level you can point to. It is the whole system — the unmanifest, the differentiated, the internalized, and the expressed — understood as a unity. A model that operates only on Vaikharī has the trace of the fire, not the fire. It has the statistical shadow of the linguistic structure of reality. That shadow is surprisingly deep and surprisingly faithful. But it is a shadow.</p>
+
+  <p>This is why LLMs fail in the ways they fail. The failures are not random. They cluster around cases that require access to what Bhartrhari would call the deeper levels of Vāk — the level of pure meaning prior to expression (Parā), the level of holistic semantic grasp before decomposition (Paśyantī), the level of internally structured thought (Madhyamā). What fails is not the retrieval of linguistic patterns. What fails is the gap between pattern and understanding — the gap, in Bhartrhari's terms, between the trace of meaning and meaning itself.</p>
+
+  <h2>What This Changes</h2>
+
+  <p>This may seem like ancient metaphysics, interesting but inert. I think it changes something.</p>
+
+  <p>The standard framing of the LLM-as-world-model finding is surprised: we expected language models, we got world models, how remarkable. The Indian grammatical tradition would not have been surprised. It would have said: of course. You built a system that models language deeply. Language is the structure of what can be known. A deep model of language is a world model. This was always going to happen.</p>
+
+  <p>What the Indian tradition adds is not just the prediction — anyone can predict in retrospect. What it adds is a theoretical framework for understanding <em>why</em>, and what the limits are. The why: because language and reality are co-constitutive, the same structure approached from different angles. The limits: because the language that LLMs model is the manifest level of a deeper structure, and the deeper levels are not directly accessible from text.</p>
+
+  <p>The practical implication is this: if Bhartrhari is right, then the path to better world modeling is not primarily to gather more data about the world. It is to build systems that access deeper levels of linguistic structure — the level at which meaning is holistic and undifferentiated, prior to its decomposition into the sequences of tokens we call text. What that would look like architecturally is an open question. But the Indian grammarians have been asking the right version of that question for fifteen centuries.</p>
+
+  <p>We are, perhaps, only now catching up to the question.</p>
+
+  <div class="footnotes">
+    <p><strong>Notes</strong></p>
+    <p>1. Li, K., Hopkins, A. K., Bau, D., Viégas, F., Pfister, H., &amp; Wattenberg, M. (2022). Emergent world representations: Exploring a sequence model trained on a synthetic task. <em>arXiv preprint arXiv:2210.13382</em>.</p>
+    <p>2. Bhartrhari's dates are uncertain; the fifth century CE is the conventional estimate. The Vākyapadīya survives in three books (kāṇḍas); the most philosophically dense is the first. The translation used here is K. Raghavan Pillai's 1971 edition (Motilal Banarsidass), which remains the most accessible to readers without Sanskrit.</p>
+    <p>3. The characterization of Pāṇini's grammar as "constitutive" rather than merely "descriptive" follows the analysis in Frits Staal, <em>A Reader on the Sanskrit Grammarians</em> (MIT Press, 1972) and George Cardona, <em>Pāṇini: His Work and Its Traditions</em> (Motilal Banarsidass, 1988).</p>
+    <p>4. The four levels of Vāk (Parā, Paśyantī, Madhyamā, Vaikharī) are discussed at length in the Vākyapadīya and in related Tantric literature. Their application to contemporary language processing is developed further in <em>Before the Word</em> (Praveen Maloo, 2026).</p>
+  </div>
+
+</div>
+
+<div class="next-post">
+  <span class="next-label">Next Essay</span>
+  <a href="/blog/" class="next-title">Sphoṭa and the Embedding Space →</a>
+</div>
+
+<footer class="article-footer">
+  <a href="/blog/" class="article-footer-back">← All Essays</a>
+  <div class="article-footer-copy">© 2026 Praveen Maloo · <a href="/" style="color:var(--muted); text-decoration:none;">Before the Word</a></div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const progress = document.getElementById('progress');
+  const body = document.querySelector('.article-body');
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    const bodyTop = body.offsetTop;
+    const bodyH = body.offsetHeight;
+    const scrolled = window.scrollY - bodyTop;
+    const pct = Math.max(0, Math.min(100, (scrolled / bodyH) * 100));
+    progress.style.width = pct + '%';
+  });
+</script>
+</body>
+</html>
