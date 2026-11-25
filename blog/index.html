@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Writing — Before the Word</title>
+<meta name="description" content="Essays by Praveen Maloo at the intersection of language, artificial intelligence, and Sanskrit philosophy.">
+<meta property="og:title" content="Writing — Before the Word">
+<meta property="og:description" content="Essays at the intersection of language, AI, and Sanskrit philosophy.">
+<meta property="og:image" content="https://beforetheword.com/cover.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg:    #0b0b14;
+  --bg2:   #131320;
+  --bg3:   #1a1a2e;
+  --border:#2a2a40;
+  --gold:  #c4a35a;
+  --gold2: #e8c97a;
+  --cream: #e8e0d0;
+  --cream2:#f0ebe0;
+  --muted: #6b6b80;
+  --serif: 'New York', ui-serif, Georgia, serif;
+  --sans:  'Instrument Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--bg); color: var(--cream);
+  font-family: var(--sans); font-size: 15px; line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: transparent; transition: background 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled { background: rgba(11,11,20,.92); border-color: var(--border); backdrop-filter: blur(12px); }
+.nav-title {
+  font-family: var(--serif); font-size: 15px; color: var(--cream);
+  text-decoration: none; letter-spacing: 0.02em;
+}
+.nav-links { list-style: none; display: flex; gap: 32px; padding: 0; }
+.nav-links a {
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+/* ── HEADER ── */
+.blog-header {
+  padding: 140px 48px 72px;
+  border-bottom: 1px solid var(--border);
+  max-width: 860px; margin: 0 auto;
+}
+.blog-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+}
+.blog-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+.blog-header h1 {
+  font-family: var(--serif); font-size: clamp(36px, 5vw, 54px);
+  font-weight: 400; color: var(--cream2); line-height: 1.15;
+  margin-bottom: 20px; text-wrap: balance;
+}
+.blog-header-sub {
+  font-family: var(--sans); font-size: 15px; color: var(--muted);
+  line-height: 1.65; max-width: 520px;
+}
+
+/* ── POST LIST ── */
+.post-list {
+  max-width: 860px; margin: 0 auto;
+  padding: 0 48px 96px;
+}
+.post-item {
+  display: grid; grid-template-columns: 56px 1fr;
+  gap: 28px; padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  transition: background 0.15s;
+}
+.post-item:first-child { border-top: 1px solid var(--border); }
+.post-item:hover { background: var(--bg2); margin: 0 -48px; padding-left: 48px; padding-right: 48px; border-radius: 2px; }
+.post-num {
+  font-size: 11px; font-weight: 600; color: var(--gold);
+  letter-spacing: 0.1em; text-transform: uppercase; padding-top: 6px;
+}
+.post-meta-row {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 10px;
+}
+.post-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold); opacity: 0.7;
+}
+.post-date {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.06em;
+}
+.post-read {
+  font-size: 11px; color: var(--muted); opacity: 0.6;
+}
+.post-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 400;
+  color: var(--cream2); line-height: 1.3; margin-bottom: 10px;
+}
+.post-excerpt {
+  font-size: 14px; color: var(--muted); line-height: 1.65;
+  max-width: 540px;
+}
+.post-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--gold); opacity: 0;
+  margin-top: 14px; transition: opacity 0.15s;
+}
+.post-item:hover .post-cta { opacity: 1; }
+
+/* ── COMING SOON badge ── */
+.badge-soon {
+  display: inline-block; font-size: 9px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border);
+  padding: 2px 8px; border-radius: 2px; margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ── FOOTER ── */
+.blog-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.blog-footer-title {
+  font-family: var(--serif); font-size: 13px; color: var(--muted);
+}
+.blog-footer-links { display: flex; gap: 24px; list-style: none; padding: 0; }
+.blog-footer-links a {
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.blog-footer-links a:hover { color: var(--gold); }
+
+@media (max-width: 700px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .blog-header { padding: 120px 20px 56px; }
+  .post-list { padding: 0 20px 72px; }
+  .post-item { grid-template-columns: 1fr; gap: 8px; }
+  .post-num { display: none; }
+  .blog-footer { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="/" class="nav-title">Before the Word</a>
+  <ul class="nav-links">
+    <li><a href="/#book">The Book</a></li>
+    <li><a href="/#themes">Themes</a></li>
+    <li><a href="/#author">Author</a></li>
+    <li><a href="/#get">Get It</a></li>
+    <li><a href="/blog/" class="active">Writing</a></li>
+  </ul>
+</nav>
+
+<div class="blog-header">
+  <div class="blog-eyebrow">Writing</div>
+  <h1>Language, Intelligence,<br>and the Ancient Record</h1>
+  <p class="blog-header-sub">Essays at the intersection of Sanskrit philosophy, cognitive science, and artificial intelligence — written from the perspective of a computer scientist who went looking for the origin of the word.</p>
+</div>
+
+<div class="post-list">
+
+  <a href="/blog/panini-first-generative-model/" class="post-item">
+    <div class="post-num">01</div>
+    <div>
+      <div class="post-meta-row">
+        <span class="post-tag">Language &amp; AI</span>
+        <span class="post-date">Coming soon</span>
+        <span class="post-read">· ~12 min read</span>
+      </div>
+      <div class="post-title">Panini's Ashtadhyayi: The First Generative Model <span class="badge-soon">Soon</span></div>
+      <div class="post-excerpt">In 350 BCE, a grammarian in northwest India encoded all valid Sanskrit into 3,959 rules — ordered, recursive, and finite. What he built looks, structurally, like what we now call a large language model. The parallel is not metaphorical.</div>
+    </div>
+  </a>
+
+  <a href="/blog/four-levels-of-vak/" class="post-item">
+    <div class="post-num">02</div>
+    <div>
+      <div class="post-meta-row">
+        <span class="post-tag">Philosophy &amp; AI</span>
+        <span class="post-date">Coming soon</span>
+        <span class="post-read">· ~10 min read</span>
+      </div>
+      <div class="post-title">The Four Levels of Vāk: What LLMs Process and What They Miss <span class="badge-soon">Soon</span></div>
+      <div class="post-excerpt">Ancient Indian philosophy described four levels of speech: Parā, Paśyantī, Madhyamā, Vaikharī — from the unmanifest vibration of meaning to the spoken word. Modern language models operate fluently at one of them.</div>
+    </div>
+  </a>
+
+  <a href="/blog/sphota-and-embeddings/" class="post-item">
+    <div class="post-num">03</div>
+    <div>
+      <div class="post-meta-row">
+        <span class="post-tag">Philosophy &amp; AI</span>
+        <span class="post-date">Coming soon</span>
+        <span class="post-read">· ~9 min read</span>
+      </div>
+      <div class="post-title">Sphoṭa and the Embedding Space <span class="badge-soon">Soon</span></div>
+      <div class="post-excerpt">Bhartrhari proposed that meaning is not assembled word by word but grasped whole — a single unitary flash he called sphoṭa. The embedding space of a language model encodes something similar, and reveals where the analogy breaks.</div>
+    </div>
+  </a>
+
+</div>
+
+<footer class="blog-footer">
+  <div class="blog-footer-title">Before the Word — Praveen Maloo</div>
+  <ul class="blog-footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#get">Buy the Book</a></li>
+    <li><a href="mailto:praveen@beforetheword.com">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>

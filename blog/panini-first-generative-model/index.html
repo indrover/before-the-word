@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panini's Ashtadhyayi: The First Generative Model — Before the Word</title>
+<meta name="description" content="In 350 BCE, Panini encoded all valid Sanskrit into 3,959 rules. What he built looks structurally like a large language model.">
+<meta property="og:title" content="Panini's Ashtadhyayi: The First Generative Model">
+<meta property="og:description" content="In 350 BCE, Panini encoded all valid Sanskrit into 3,959 rules. What he built looks structurally like a large language model.">
+<meta property="og:image" content="https://beforetheword.com/cover.jpg">
+<link rel="canonical" href="https://beforetheword.com/blog/panini-first-generative-model/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg:    #0b0b14;
+  --bg2:   #131320;
+  --bg3:   #1a1a2e;
+  --border:#2a2a40;
+  --gold:  #c4a35a;
+  --gold2: #e8c97a;
+  --cream: #e8e0d0;
+  --cream2:#f0ebe0;
+  --muted: #6b6b80;
+  --serif: 'New York', ui-serif, Georgia, serif;
+  --sans:  'Instrument Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+body {
+  background: var(--bg); color: var(--cream);
+  font-family: var(--sans); font-size: 15px; line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: transparent; transition: background 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled { background: rgba(11,11,20,.92); border-color: var(--border); backdrop-filter: blur(12px); }
+.nav-title { font-family: var(--serif); font-size: 15px; color: var(--cream); text-decoration: none; }
+.nav-links { list-style: none; display: flex; gap: 32px; padding: 0; }
+.nav-links a {
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+/* ── ARTICLE ── */
+.article-header {
+  padding: 140px 48px 60px;
+  max-width: 760px; margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+.article-meta {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px;
+}
+.article-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold);
+}
+.article-date, .article-read {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.06em;
+}
+.article-header h1 {
+  font-family: var(--serif); font-size: clamp(30px, 4.5vw, 46px);
+  font-weight: 400; color: var(--cream2); line-height: 1.18;
+  margin-bottom: 20px; text-wrap: balance;
+}
+.article-lede {
+  font-family: var(--serif); font-size: 19px; color: var(--cream);
+  opacity: 0.75; line-height: 1.65; font-style: italic;
+}
+.article-byline {
+  display: flex; align-items: center; gap: 12px; margin-top: 32px;
+}
+.byline-name {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  color: var(--muted); letter-spacing: 0.06em;
+}
+
+/* ── BODY ── */
+.article-body {
+  max-width: 680px; margin: 0 auto;
+  padding: 60px 48px 96px;
+}
+.article-body p {
+  font-family: var(--serif); font-size: 18px; color: var(--cream);
+  line-height: 1.8; margin-bottom: 1.6em; opacity: 0.88;
+}
+.article-body h2 {
+  font-family: var(--serif); font-size: 24px; font-weight: 400;
+  color: var(--cream2); line-height: 1.25;
+  margin: 2.4em 0 0.8em; padding-top: 0.4em;
+  border-top: 1px solid var(--border);
+}
+.article-body h3 {
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+  margin: 2em 0 0.8em;
+}
+.article-body blockquote {
+  border-left: 2px solid var(--gold); padding-left: 24px;
+  margin: 2em 0;
+  font-family: var(--serif); font-size: 19px; font-style: italic;
+  color: var(--cream2); opacity: 0.85; line-height: 1.65;
+}
+.article-body .footnote {
+  font-family: var(--sans); font-size: 12px; color: var(--muted);
+  border-top: 1px solid var(--border); margin-top: 48px; padding-top: 24px;
+  line-height: 1.65;
+}
+
+/* ── COMING SOON state ── */
+.coming-soon-banner {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  padding: 20px 24px; margin-bottom: 48px;
+  font-family: var(--sans); font-size: 13px; color: var(--muted);
+  line-height: 1.6;
+}
+.coming-soon-banner strong { color: var(--gold); font-weight: 600; }
+
+/* ── FOOTER ── */
+.article-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.article-footer-back {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--gold); text-decoration: none;
+}
+.article-footer-back:hover { color: var(--gold2); }
+.article-footer-copy {
+  font-size: 11px; color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .article-header { padding: 120px 20px 48px; }
+  .article-body { padding: 48px 20px 72px; }
+  .article-footer { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="/" class="nav-title">Before the Word</a>
+  <ul class="nav-links">
+    <li><a href="/#book">The Book</a></li>
+    <li><a href="/#themes">Themes</a></li>
+    <li><a href="/#author">Author</a></li>
+    <li><a href="/#get">Get It</a></li>
+    <li><a href="/blog/" class="active">Writing</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="article-meta">
+    <span class="article-tag">Language &amp; AI</span>
+    <span class="article-date">· Coming soon</span>
+    <span class="article-read">· ~12 min read</span>
+  </div>
+  <h1>Panini's Ashtadhyayi:<br>The First Generative Model</h1>
+  <p class="article-lede">In 350 BCE, a grammarian in northwest India encoded all valid Sanskrit into 3,959 rules. What he built looks, structurally, like what we now call a large language model. The parallel is not metaphorical.</p>
+  <div class="article-byline">
+    <div>
+      <div class="byline-name">Praveen Maloo &nbsp;·&nbsp; beforetheword.com</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+  <div class="coming-soon-banner">
+    <strong>Essay in progress.</strong> This piece is being written. Subscribe at <a href="/#signup" style="color:var(--gold)">beforetheword.com</a> to be notified when it publishes.
+  </div>
+
+  <!-- Essay body goes here -->
+
+</div>
+
+<footer class="article-footer">
+  <a href="/blog/" class="article-footer-back">← All Essays</a>
+  <div class="article-footer-copy">© 2026 Praveen Maloo</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+</body>
+</html>
