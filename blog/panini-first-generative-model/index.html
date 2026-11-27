@@ -115,15 +115,65 @@ nav.scrolled { background: rgba(11,11,20,.92); border-color: var(--border); back
   line-height: 1.65;
 }
 
-/* ── COMING SOON state ── */
-.coming-soon-banner {
-  background: var(--bg3); border: 1px solid var(--border);
+/* ── BOOK CTA ── */
+.book-cta {
+  background: var(--bg2); border: 1px solid var(--border);
   border-left: 2px solid var(--gold);
-  padding: 20px 24px; margin-bottom: 48px;
-  font-family: var(--sans); font-size: 13px; color: var(--muted);
-  line-height: 1.6;
+  padding: 24px 28px; margin: 3em 0;
+  display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;
 }
-.coming-soon-banner strong { color: var(--gold); font-weight: 600; }
+.book-cta-text { flex: 1; min-width: 200px; }
+.book-cta-text p {
+  font-family: var(--sans) !important; font-size: 13px !important;
+  color: var(--muted) !important; margin-bottom: 0 !important; opacity: 1 !important;
+  line-height: 1.6 !important;
+}
+.book-cta-text strong { color: var(--cream); font-weight: 500; }
+.book-cta-btn {
+  display: inline-block; font-family: var(--sans); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--bg); background: var(--gold); border: none;
+  padding: 10px 18px; text-decoration: none; white-space: nowrap;
+  transition: opacity 0.15s; border-radius: 1px;
+}
+.book-cta-btn:hover { opacity: 0.85; }
+.article-body .book-cta-btn { color: var(--bg); border-bottom: none; }
+
+/* ── PULL QUOTE ── */
+.pull {
+  font-family: var(--serif); font-size: 22px; color: var(--gold);
+  line-height: 1.4; margin: 2.4em 0; padding-left: 24px;
+  border-left: 2px solid var(--gold); font-style: italic; opacity: 0.9;
+}
+
+/* ── NEXT POST ── */
+.next-post {
+  border-top: 1px solid var(--border); padding: 36px 48px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.next-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.next-title {
+  font-family: var(--serif); font-size: 18px; color: var(--gold);
+  text-decoration: none;
+}
+.next-title:hover { color: var(--gold2); }
+
+/* ── READING PROGRESS ── */
+.reading-progress {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: var(--gold); width: 0%; z-index: 100;
+  transition: width 0.1s linear;
+}
+
+/* ── ARTICLE BODY LINKS ── */
+.article-body a {
+  color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(196,163,90,.3);
+  transition: border-color 0.15s;
+}
+.article-body a:hover { border-color: var(--gold); }
 
 /* ── FOOTER ── */
 .article-footer {
@@ -166,8 +216,8 @@ nav.scrolled { background: rgba(11,11,20,.92); border-color: var(--border); back
 <div class="article-header">
   <div class="article-meta">
     <span class="article-tag">Language &amp; AI</span>
-    <span class="article-date">· Coming soon</span>
-    <span class="article-read">· ~12 min read</span>
+    <span class="article-date">· November 2026</span>
+    <span class="article-read">· 12 min read</span>
   </div>
   <h1>Panini's Ashtadhyayi:<br>The First Generative Model</h1>
   <p class="article-lede">In 350 BCE, a grammarian in northwest India encoded all valid Sanskrit into 3,959 rules. What he built looks, structurally, like what we now call a large language model. The parallel is not metaphorical.</p>
@@ -178,24 +228,113 @@ nav.scrolled { background: rgba(11,11,20,.92); border-color: var(--border); back
   </div>
 </div>
 
+<div class="reading-progress" id="progress"></div>
+
 <div class="article-body">
-  <div class="coming-soon-banner">
-    <strong>Essay in progress.</strong> This piece is being written. Subscribe at <a href="/#signup" style="color:var(--gold)">beforetheword.com</a> to be notified when it publishes.
+
+  <p>Around 350 BCE, somewhere in what is now northwestern Pakistan, a man named Panini wrote down a grammar. It had 3,959 rules. When you applied them in the right order, they generated every valid Sanskrit sentence that could ever exist, and nothing that was not valid. No more, no less.</p>
+
+  <p>We did not understand what he had built until we built something similar ourselves, two thousand years later.</p>
+
+  <h2>What Panini Actually Wrote</h2>
+
+  <p>The Ashtadhyayi is not organized the way a grammar textbook is organized. If you pick it up expecting to learn Sanskrit, you will be lost immediately. The rules are dense, abbreviated, full of technical notation that only makes sense in relation to other rules. There is no progression from simple to complex. No friendly examples. No concessions to the learner.</p>
+
+  <p>That is because Panini was not writing for learners. He was writing for completeness.</p>
+
+  <p>The goal was not to describe how Sanskrit speakers talk. The goal was to specify exactly what Sanskrit is. Every valid form, derived. Every invalid form, excluded. The whole language, in 3,959 rules.</p>
+
+  <p>This is what we now call a generative formal system. You give it a starting point and a set of rules, and it produces valid outputs. The rules are finite. The outputs are not.</p>
+
+  <div class="pull">He was not describing Sanskrit. He was specifying it. There is a difference.</div>
+
+  <h2>The Structure That Should Feel Familiar</h2>
+
+  <p>When you look at how the Ashtadhyayi actually works, some things stand out.</p>
+
+  <p>The rules are ordered. Order matters. Rule 500 can feed into rule 1,200. The system is not a flat list of facts; it is a process that runs in a specific sequence.</p>
+
+  <p>The rules are recursive. Outputs of some rules become inputs to others. You can apply rules to the results of applying rules.</p>
+
+  <p>The rules interact. A rule applied in one context might be blocked or modified by another rule. The system has to be understood as a whole, not rule by rule.</p>
+
+  <p>The rules are compressed. Panini uses a meta-language of his own invention, technically called the Shiva Sutras, to group sounds together so he can refer to entire classes in a single symbol. The whole system is designed for minimum redundancy.</p>
+
+  <p>If this sounds like a description of a neural network, I think that is not a coincidence. It sounds like that because both are doing the same underlying thing: representing a space of valid structures using a finite set of learned or stated operations.</p>
+
+  <h2>Where the Analogy Holds</h2>
+
+  <p>A large language model learns to generate valid language from examples. Panini derived valid language from first principles. One is learned, one is specified. That is a real difference.</p>
+
+  <p>But the output is structurally the same. Both produce valid utterances and nothing else. Both do it by learning or encoding the deep structure of the language, not by memorizing surface forms. Both are generative in the technical sense.</p>
+
+  <p>There is something else worth noticing. Panini's grammar is not just a grammar of sentences. It is a grammar of meaning. The rules operate on semantic units, morphological units, phonological units, all at once. The levels are not separate. They are woven together in the derivation.</p>
+
+  <p>Modern language models blur these levels too. They do not have a clean separation between sound, structure, and meaning. This used to seem like a limitation. After Panini, it looks more like a feature. The blurring is not a bug in how they were built. It is what a deep model of language looks like.</p>
+
+  <div class="book-cta">
+    <div class="book-cta-text">
+      <p><strong>Before the Word</strong> traces the philosophical tradition behind Panini's grammar and what it means for how we understand language models today.</p>
+    </div>
+    <a href="https://www.amazon.com/BEFORE-WORD-Praveen-Maloo-ebook/dp/B0GSXL8BR6/" target="_blank" rel="noopener" class="book-cta-btn">Read the Book</a>
   </div>
 
-  <!-- Essay body goes here -->
+  <h2>Where It Breaks</h2>
 
+  <p>Panini knew what he was doing. He was writing a specification, and he wrote it like one. Every rule is there for a reason. The system is interpretable, in principle, all the way down.</p>
+
+  <p>A trained language model is not like this. We do not know why it makes the generalizations it does. We know it works. We do not know exactly how. The structure Panini made explicit, the model has learned implicitly, and we cannot fully read it back out.</p>
+
+  <p>This matters more than it might seem. Panini's grammar is a theory of Sanskrit. A language model trained on Sanskrit is not a theory of anything. It is a very good compression of patterns. The patterns may encode a structure as deep as Panini's, or deeper. But we cannot see it.</p>
+
+  <p>This is, I think, one of the more honest ways to describe what interpretability research is trying to do. It is trying to find the Ashtadhyayi inside the model.</p>
+
+  <h2>What This Changes</h2>
+
+  <p>The usual story about Panini is that he was ahead of his time. A linguist who somehow anticipated formal grammar, generative linguistics, Chomsky, all of it, by two millennia.</p>
+
+  <p>I think that framing is too modest in one direction and wrong in another.</p>
+
+  <p>Too modest, because Panini was not just anticipating formal grammar. He was doing something more ambitious: trying to write down the complete structure of a language as a generative system. That is not what modern descriptive linguistics does. It is closer to what AI researchers are trying to do now.</p>
+
+  <p>Wrong, because the Ashtadhyayi was not waiting around to be validated by Western linguistics. It was embedded in a tradition that understood exactly what it was: an investigation into how language generates reality, not just sentences. The philosophical context matters. Panini was read by Bhartrhari. The grammar was understood as ontology, not just philology.<sup>1</sup></p>
+
+  <p>We are only now asking the same questions again, with different tools.</p>
+
+  <p>The model learns to predict. The grammar specifies to completion. Both arrive at the same place: a finite system that generates an infinite structured space. What Panini wrote by hand, with notation he invented, in rules short enough to memorize, we are approximating with billions of parameters and terabytes of text.</p>
+
+  <p>He got there first. And he knew what he was building.</p>
+
+  <div class="footnote">
+    <p><strong>Notes</strong></p>
+    <p>1. The connection between Panini's grammar and Bhartrhari's ontology is developed in depth in Bimal Krishna Matilal, <em>The Word and the World</em> (Oxford University Press, 1990), and George Cardona, <em>Panini: His Work and Its Traditions</em> (Motilal Banarsidass, 1988). Frits Staal's <em>A Reader on the Sanskrit Grammarians</em> (MIT Press, 1972) remains the most useful entry point for readers coming from a formal linguistics or computer science background.</p>
+    <p>2. The characterization of the Ashtadhyayi as a generative formal system in the modern sense is controversial in Indological circles. The argument here follows the analysis in Wiebke Petersen, "A Mathematical Analysis of Panini's Sivasutras," <em>Journal of Logic, Language and Information</em> 13 (2004), which shows that the Shiva Sutras form a minimal covering of Sanskrit phoneme classes in a formally precise sense.</p>
+  </div>
+
+</div>
+
+<div class="next-post">
+  <span class="next-label">Next Essay</span>
+  <a href="/blog/" class="next-title">The Four Levels of Vak: What LLMs Process and What They Miss</a>
 </div>
 
 <footer class="article-footer">
   <a href="/blog/" class="article-footer-back">← All Essays</a>
-  <div class="article-footer-copy">© 2026 Praveen Maloo</div>
+  <div class="article-footer-copy">© 2026 Praveen Maloo · <a href="/" style="color:var(--muted); text-decoration:none;">Before the Word</a></div>
 </footer>
 
 <script>
   const nav = document.getElementById('main-nav');
+  const progress = document.getElementById('progress');
+  const body = document.querySelector('.article-body');
+
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
+    const bodyTop = body.offsetTop;
+    const bodyH = body.offsetHeight;
+    const scrolled = window.scrollY - bodyTop;
+    const pct = Math.min(Math.max(scrolled / bodyH, 0), 1);
+    progress.style.width = (pct * 100) + '%';
   });
 </script>
 </body>
